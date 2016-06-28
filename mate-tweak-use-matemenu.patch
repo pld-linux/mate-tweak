@@ -1,0 +1,22 @@
+# PATCH-FIX-OPENSUSE mate-tweak-use-matemenu.patch sor.alexei@meowr.ru 
+# -- Layouts are patched to use mate-menu instead of mintMenu or gnome-main-menu.
+--- a/mate-tweak
++++ b/mate-tweak
+@@ -959,7 +959,7 @@ class MateTweak:
+         if self.panel_layout_exists('default'):
+             panels.append([_("GNOME2"), "default"])
+ 
+-        if self.panel_layout_exists('linuxmint') and self.mint_menu_available:
++        if self.panel_layout_exists('linuxmint') and self.mate_menu_available:
+             panels.append([_("Linux Mint"), "linuxmint"])
+ 
+         if self.panel_layout_exists('mageia') and self.mageia_cc_available:
+@@ -973,7 +973,7 @@ class MateTweak:
+         if self.panel_layout_exists('netbook') and self.maximus_available:
+             panels.append([_("Netbook"), "netbook"])
+ 
+-        if self.panel_layout_exists('opensuse') and self.gnome_menu_available:
++        if self.panel_layout_exists('opensuse') and self.mate_menu_available:
+             panels.append([_("openSUSE"), "opensuse"])
+ 
+         if self.panel_layout_exists('redmond'):
