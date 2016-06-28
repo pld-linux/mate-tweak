@@ -1,7 +1,7 @@
 Summary:	MATE desktop tweak tool
 Name:		mate-tweak
 Version:	16.10.0
-Release:	0.2
+Release:	0.3
 License:	GPL v2.0+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
@@ -10,15 +10,16 @@ URL:		https://bitbucket.org/ubuntu-mate/mate-tweak
 Patch0:		%{name}-use-matemenu.patch
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	intltool
-BuildRequires:	python-modules
-BuildRequires:	python-setuptools
+BuildRequires:	python3-distutils-extra
+BuildRequires:	python3-modules
+BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 Requires:	Mesa-demo-x
 Requires:	dconf
 Requires:	mate-panel
-Requires:	python-configobj
-Requires:	python-pygobject
+Requires:	python3-configobj
+Requires:	python3-pygobject
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,11 +41,11 @@ mv ubuntu-mate-mate-tweak-*/* .
 %patch0 -p1
 
 %build
-%py_build
+%py3_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%py_install
+%py3_install
 
 # Give gi-find-deps.sh a bait.
 #ln -s %{_bindir}/%{name} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/%{name}.py
@@ -99,4 +100,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mate/applications/metacity-no-composite.desktop
 %{_datadir}/mate/applications/metacity-xcompmgr.desktop
 
-%{py_sitescriptdir}/mate_tweak-%{version}-py*.egg-info
+%{py3_sitescriptdir}/mate_tweak-%{version}-py*.egg-info
