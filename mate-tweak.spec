@@ -1,9 +1,7 @@
-%define _name   mate_tweak
-%define _rev    998ebdda6538
 Summary:	MATE desktop tweak tool
 Name:		mate-tweak
 Version:	16.10.0
-Release:	0.1
+Release:	0.2
 License:	GPL v2.0+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
@@ -50,6 +48,11 @@ rm -rf $RPM_BUILD_ROOT
 
 # Give gi-find-deps.sh a bait.
 #ln -s %{_bindir}/%{name} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/%{name}.py
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/frp
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/jv
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/shn
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/tpi
 
 %find_lang %{name}
 
