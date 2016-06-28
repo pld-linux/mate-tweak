@@ -15,7 +15,7 @@ BuildRequires:	python3-modules
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	Mesa-demo-x
+#Requires:	Mesa-demo-x
 Requires:	dconf
 Requires:	mate-panel
 Requires:	python3-configobj
