@@ -19,6 +19,7 @@ Requires:	Mesa-demo-x
 Requires:	dconf
 Requires:	mate-panel
 Requires:	python3-configobj
+Requires:	python3-psutil
 Requires:	python3-pygobject
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
