@@ -16,6 +16,7 @@ BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	sed >= 4.0
 #Requires:	Mesa-demo-x
 Requires:	dconf
 Requires:	gobject-introspection
@@ -54,6 +55,9 @@ Ustawienia obsługiwane przez MATE Tweak:
 %setup -qc
 %{__mv} ubuntu-mate-mate-tweak-*/* .
 %patch0 -p1
+
+%{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' util/{disable-mate-volume-applet,mate-panel-backup,install-mate-panel-layout}
+%{__sed} -i -e '1s,/usr/bin/env bash,/bin/bash,' marco-{compton,xcompmgr,no-composite} metacity-{compton,xcompmgr,no-composite}
 
 %build
 %py3_build
