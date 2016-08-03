@@ -6,8 +6,8 @@ License:	GPL v2.0+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
 # Source0-md5:	176ad94494b065d03a085130b7be2b1d
-URL:		https://bitbucket.org/ubuntu-mate/mate-tweak
 Patch0:		%{name}-use-matemenu.patch
+URL:		https://bitbucket.org/ubuntu-mate/mate-tweak
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	intltool
 BuildRequires:	python3-distutils-extra
@@ -51,10 +51,10 @@ rm -rf $RPM_BUILD_ROOT
 # Give gi-find-deps.sh a bait.
 #ln -s %{_bindir}/%{name} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/%{name}.py
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/frp
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/jv
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/shn
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/tpi
+# es_419,zh-Hans are bogus
+# frp,jv,ku_IQ,nah,nqo,sco,tpi not supported by glibc
+# ur_PK an ampty version or ur
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_419,frp,jv,ku_IQ,nah,nqo,sco,tpi,ur_PK,zh-Hans}
 
 %find_lang %{name}
 
