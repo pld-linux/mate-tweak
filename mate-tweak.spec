@@ -1,12 +1,14 @@
+# TODO
+# - ubuntu specific multiarch paths for indicators
 Summary:	MATE desktop tweak tool
 Summary(pl.UTF-8):	Narzędzie do dostrajania środowiska MATE
 Name:		mate-tweak
-Version:	16.10.0
-Release:	0.3
+Version:	16.10.4
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
-# Source0-md5:	176ad94494b065d03a085130b7be2b1d
+# Source0-md5:	1fbfcb3523c98cc4342c61f3f1130dd2
 Patch0:		%{name}-use-matemenu.patch
 URL:		https://bitbucket.org/ubuntu-mate/mate-tweak
 BuildRequires:	gobject-introspection-devel
