@@ -1,8 +1,9 @@
 Summary:	MATE desktop tweak tool
+Summary(pl.UTF-8):	Narzędzie do dostrajania środowiska MATE
 Name:		mate-tweak
 Version:	16.10.0
 Release:	0.3
-License:	GPL v2.0+
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
 # Source0-md5:	176ad94494b065d03a085130b7be2b1d
@@ -11,16 +12,19 @@ URL:		https://bitbucket.org/ubuntu-mate/mate-tweak
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	intltool
 BuildRequires:	python3-distutils-extra
-BuildRequires:	python3-modules
+BuildRequires:	python3-modules >= 1:3.2
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 #Requires:	Mesa-demo-x
 Requires:	dconf
+Requires:	gobject-introspection
+Requires:	gtk+3 >= 3.0
+Requires:	libnotify >= 0.7
 Requires:	mate-panel
 Requires:	python3-configobj
 Requires:	python3-psutil
-Requires:	python3-pygobject
+Requires:	python3-pygobject3 >= 3.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,9 +40,19 @@ Settings that can be handled via MATE Tweak:
    size, button labelling, contex menus, etc.).
  - Window manager fine-tuning.
 
+%description -l pl.UTF-8
+MATE Tweak to narzędzie do konfiguracji niektórych aspektów środowiska
+graficznego MATE, nie udostępniony poprzez aplety MATE Control Centre.
+
+Ustawienia obsługiwane przez MATE Tweak:
+- pokazywanie/ukrywanie standardowych ikon pulpitu
+- dostrajanie panelu (widoczność ikon w menu i na przyciskach, rozmiar
+  ikon, etykiety przycisków, menu kontekstowe itp.)
+- dostrajanie zarządcy okien
+
 %prep
 %setup -qc
-mv ubuntu-mate-mate-tweak-*/* .
+%{__mv} ubuntu-mate-mate-tweak-*/* .
 %patch0 -p1
 
 %build
@@ -46,6 +60,7 @@ mv ubuntu-mate-mate-tweak-*/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %py3_install
 
 # Give gi-find-deps.sh a bait.
