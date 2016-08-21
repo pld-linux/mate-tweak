@@ -28,6 +28,7 @@ Requires:	mate-panel
 Requires:	python3-configobj
 Requires:	python3-psutil
 Requires:	python3-pygobject3 >= 3.0
+Requires:	python3-setproctitle
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
