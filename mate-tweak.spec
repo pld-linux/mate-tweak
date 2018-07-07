@@ -4,7 +4,7 @@ Summary:	MATE desktop tweak tool
 Summary(pl.UTF-8):	Narzędzie do dostrajania środowiska MATE
 Name:		mate-tweak
 Version:	16.10.4
-Release:	5
+Release:	6
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 # es_419,zh-Hans are bogus
 # frp,jv,ku_IQ,nah,nqo,pms,sco,tpi not supported by glibc
 # ur_PK an ampty version or ur
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_419,frp,jv,ku_IQ,nah,nqo,pms,sco,tpi,ur_PK,zh-Hans}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_419,es_ES,es_US,frp,jv,ku_IQ,nah,nqo,pms,sco,tpi,ur_PK,zh-Hans}
 
 %find_lang %{name}
 
