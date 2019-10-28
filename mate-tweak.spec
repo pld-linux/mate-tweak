@@ -4,7 +4,7 @@ Summary:	MATE desktop tweak tool
 Summary(pl.UTF-8):	Narzędzie do dostrajania środowiska MATE
 Name:		mate-tweak
 Version:	16.10.4
-Release:	6
+Release:	7
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://bitbucket.org/ubuntu-mate/mate-tweak/get/%{version}.tar.gz?/%{name}-%{version}.tar.gz
